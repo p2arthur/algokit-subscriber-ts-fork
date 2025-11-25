@@ -3,7 +3,10 @@
   "entryPoints": ["src/index.ts", "src/types/*.ts"],
   "exclude": ["src/**/*.spec.ts", "tests/**/*.*", "examples/**/*.*"],
   "entryPointStrategy": "expand",
-  "out": "docs/_html",
+  "outputs": [
+    { "name": "markdown", "path": "docs" },
+    { "name": "html", "path": "docs/_html" }
+  ],
   "plugin": ["typedoc-plugin-markdown"],
   "theme": "default",
   "cleanOutputDir": true,
