@@ -2,7 +2,7 @@
 
 ***
 
-[@algorandfoundation/algokit-subscriber](../../../README.md) / [types/subscription](../README.md) / CoreTransactionSubscriptionParams
+[@algorandfoundation/algokit-subscriber](../../../modules.md) / [types/subscription](../README.md) / CoreTransactionSubscriptionParams
 
 # Interface: CoreTransactionSubscriptionParams
 

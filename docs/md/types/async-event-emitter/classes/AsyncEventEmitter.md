@@ -2,7 +2,7 @@
 
 ***
 
-[@algorandfoundation/algokit-subscriber](../../../README.md) / [types/async-event-emitter](../README.md) / AsyncEventEmitter
+[@algorandfoundation/algokit-subscriber](../../../modules.md) / [types/async-event-emitter](../README.md) / AsyncEventEmitter
 
 # Class: AsyncEventEmitter
 

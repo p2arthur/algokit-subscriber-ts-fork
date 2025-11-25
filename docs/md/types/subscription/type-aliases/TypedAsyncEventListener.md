@@ -2,7 +2,7 @@
 
 ***
 
-[@algorandfoundation/algokit-subscriber](../../../README.md) / [types/subscription](../README.md) / TypedAsyncEventListener
+[@algorandfoundation/algokit-subscriber](../../../modules.md) / [types/subscription](../README.md) / TypedAsyncEventListener
 
 # Type Alias: TypedAsyncEventListener()\<T\>
 

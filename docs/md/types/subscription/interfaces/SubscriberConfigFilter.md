@@ -2,7 +2,7 @@
 
 ***
 
-[@algorandfoundation/algokit-subscriber](../../../README.md) / [types/subscription](../README.md) / SubscriberConfigFilter
+[@algorandfoundation/algokit-subscriber](../../../modules.md) / [types/subscription](../README.md) / SubscriberConfigFilter
 
 # Interface: SubscriberConfigFilter\<T\>
 

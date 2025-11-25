@@ -2,7 +2,7 @@
 
 ***
 
-[@algorandfoundation/algokit-subscriber](../../../README.md) / [types/arc-28](../README.md) / Arc28Event
+[@algorandfoundation/algokit-subscriber](../../../modules.md) / [types/arc-28](../README.md) / Arc28Event
 
 # Interface: Arc28Event
 

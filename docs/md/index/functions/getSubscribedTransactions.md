@@ -2,7 +2,7 @@
 
 ***
 
-[@algorandfoundation/algokit-subscriber](../../README.md) / [index](../README.md) / getSubscribedTransactions
+[@algorandfoundation/algokit-subscriber](../../modules.md) / [index](../README.md) / getSubscribedTransactions
 
 # Function: getSubscribedTransactions()
 

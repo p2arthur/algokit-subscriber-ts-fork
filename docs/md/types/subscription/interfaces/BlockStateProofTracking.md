@@ -2,7 +2,7 @@
 
 ***
 
-[@algorandfoundation/algokit-subscriber](../../../README.md) / [types/subscription](../README.md) / BlockStateProofTracking
+[@algorandfoundation/algokit-subscriber](../../../modules.md) / [types/subscription](../README.md) / BlockStateProofTracking
 
 # Interface: BlockStateProofTracking
 

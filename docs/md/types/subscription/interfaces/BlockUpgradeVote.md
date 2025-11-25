@@ -2,7 +2,7 @@
 
 ***
 
-[@algorandfoundation/algokit-subscriber](../../../README.md) / [types/subscription](../README.md) / BlockUpgradeVote
+[@algorandfoundation/algokit-subscriber](../../../modules.md) / [types/subscription](../README.md) / BlockUpgradeVote
 
 # Interface: BlockUpgradeVote
 

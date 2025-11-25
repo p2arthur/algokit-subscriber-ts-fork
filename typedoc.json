@@ -12,7 +12,7 @@
   "theme": "default",
   "cleanOutputDir": true,
   "githubPages": true,
-  "readme": "none",
+  "readme": "docs/README.md",
   "gitRevision": "main",
   "tsconfig": "tsconfig.build.json"
 }

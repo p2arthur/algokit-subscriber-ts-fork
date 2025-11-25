@@ -2,7 +2,7 @@
 
 ***
 
-[@algorandfoundation/algokit-subscriber](../../../README.md) / [types/block](../README.md) / TransactionInBlock
+[@algorandfoundation/algokit-subscriber](../../../modules.md) / [types/block](../README.md) / TransactionInBlock
 
 # Interface: TransactionInBlock
 

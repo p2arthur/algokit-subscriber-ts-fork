@@ -2,18 +2,22 @@
 
 ***
 
+**@algorandfoundation/algokit-subscriber**
+
+---
+
 # @algorandfoundation/algokit-subscriber
 
 ## Documents
 
-- [README](documents/README.md)
-- [subscriber](documents/subscriber.md)
+- [README](_media/README.md)
+- [subscriber](_media/subscriber.md)
 
 ## Modules
 
-- [index](index/README.md)
-- [types](types/README.md)
-- [types/arc-28](types/arc-28/README.md)
-- [types/async-event-emitter](types/async-event-emitter/README.md)
-- [types/block](types/block/README.md)
-- [types/subscription](types/subscription/README.md)
+- [index](_media/README-1.md)
+- [types](_media/README-2.md)
+- [types/arc-28](_media/README-3.md)
+- [types/async-event-emitter](_media/README-4.md)
+- [types/block](_media/README-5.md)
+- [types/subscription](_media/README-6.md)

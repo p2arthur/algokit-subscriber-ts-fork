@@ -2,7 +2,7 @@
 
 ***
 
-[@algorandfoundation/algokit-subscriber](../../../README.md) / [types/subscription](../README.md) / BeforePollMetadata
+[@algorandfoundation/algokit-subscriber](../../../modules.md) / [types/subscription](../README.md) / BeforePollMetadata
 
 # Interface: BeforePollMetadata
 
