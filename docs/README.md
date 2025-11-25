@@ -4,6 +4,10 @@
 
 # @algorandfoundation/algokit-subscriber
 
+## Documents
+
+- [README](documents/README.md)
+
 ## Modules
 
 - [index](index/README.md)
