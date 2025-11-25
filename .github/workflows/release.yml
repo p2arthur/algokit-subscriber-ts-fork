@@ -59,9 +59,12 @@ jobs:
         with:
           path: docs/_html
 
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Publish docs
+        uses: ./.github/workflows/gh-pages.yml
+        permissions:
+        contents: read
+        pages: write
+        id-token: write
 
   check_docs:
     runs-on: ubuntu-latest
