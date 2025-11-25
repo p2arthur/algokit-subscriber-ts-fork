@@ -1,8 +1,24 @@
-# `getSubscribedTransactions`
+[**@algorandfoundation/algokit-subscriber**](../README.md)
+
+***
+
+[@algorandfoundation/algokit-subscriber](../modules.md) / subscriptions
+
+npm run generate:code-docs
+
+> @algorandfoundation/algokit-subscriber@1.0.0 generate:code-docs
+> typedoc
+
+[info] Loaded plugin typedoc-plugin-markdown
+[info] markdown generated at ./docs/md
+[warning] subscriber links to subscriptions.md#arc-28-events, but the anchor does not exist. You may have meant:
+subscriptions.md#arc28eventgroup
+[info] html generated at ./docs/\_html
+`getSubscribedTransactions`
 
 `getSubscribedTransactions` is the core building block at the centre of this library. It's a simple, but flexible mechanism that allows you to enact a single subscription "poll" of the Algorand blockchain.
 
-This is a lower level building block, you likely don't want to use it directly, but instead use the [`AlgorandSubscriber` class](./subscriber.md#creating-a-subscriber).
+This is a lower level building block, you likely don't want to use it directly, but instead use the [`AlgorandSubscriber` class](subscriber.md).
 
 You can use this method to orchestrate everything from an index of all relevant data from the start of the chain through to simply subscribing to relevant transactions as they emerge at the tip of the chain. It allows you to have reliable at least once delivery even if your code has outages through the use of watermarking.
 
