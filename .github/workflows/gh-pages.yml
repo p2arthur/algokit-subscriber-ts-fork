@@ -1,23 +1,21 @@
 name: Docs Check and Publish
 
 on:
-  push:
-    branches:
-      - main
-  workflow_dispatch:
-
-# Set permissions for the deployment actions
-permissions:
-  contents: read
-  pages: write
-  id-token: write
+  workflow_call:
+    secrets:
+      BOT_ID:
+        required: true
+      BOT_SK:
+        required: true
 
 jobs:
   generate_docs:
     name: Generate & Publish Docs
     runs-on: ubuntu-latest
-    needs:
-      - ci
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
