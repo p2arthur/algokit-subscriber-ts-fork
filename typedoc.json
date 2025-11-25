@@ -3,6 +3,7 @@
   "entryPoints": ["src/index.ts", "src/types/*.ts"],
   "exclude": ["src/**/*.spec.ts", "tests/**/*.*", "examples/**/*.*"],
   "entryPointStrategy": "expand",
+  "out": "./docs",
   "outputs": [
     {
       "name": "html",
