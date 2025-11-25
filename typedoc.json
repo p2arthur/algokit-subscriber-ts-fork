@@ -3,9 +3,9 @@
   "entryPoints": ["src/index.ts", "src/types/*.ts"],
   "exclude": ["src/**/*.spec.ts", "tests/**/*.*", "examples/**/*.*"],
   "entryPointStrategy": "expand",
-  "projectDocuments": ["docs/README.md"],
+  "projectDocuments": ["docs/README.md", "docs/subscriber.md"],
   "outputs": [
-    { "name": "markdown", "path": "docs" },
+    { "name": "markdown", "path": "docs/md" },
     { "name": "html", "path": "docs/_html" }
   ],
   "plugin": ["typedoc-plugin-markdown"],

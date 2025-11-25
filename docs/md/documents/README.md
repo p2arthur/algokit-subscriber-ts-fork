@@ -1,3 +1,9 @@
+[**@algorandfoundation/algokit-subscriber**](../README.md)
+
+***
+
+[@algorandfoundation/algokit-subscriber](../README.md) / README
+
 **@algorandfoundation/algokit-subscriber**
 
 ***
