@@ -13,55 +13,50 @@ permissions:
   id-token: write
 
 jobs:
-  publish_docs:
-    name: Build & Publish Docs
+  generate_docs:
+    name: Generate & Publish Docs
     runs-on: ubuntu-latest
-
-    # Use environment setup only for the publishing job
+    needs:
+      - ci
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-
     steps:
-      - name: Checkout source code
+      - name: Clone repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
 
-      - name: Use Node.js 22.x
+      - name: Use Node.js 20.x
         uses: actions/setup-node@v4
         with:
-          node-version: 22.x
-          cache: 'npm'
+          node-version: 20.x
 
-      - name: Npm install
+      - name: Install dependencies
         run: npm ci --ignore-scripts
 
-      # - name: Generate Prisma Client
-      #   run: npx prisma generate
+      - name: Generate documentation
+        run: npm run generate:code-docs
 
-      # Step 1: Generate Docs (Now without the staleness check)
-      - name: Build and Generate Docs (HTML)
-        run: |
-          # This command now runs independently and generates the docs
-          npm run generate:code-docs
+      - name: Generate bot token
+        uses: actions/create-github-app-token@v1
+        id: app_token
+        with:
+          app_id: ${{ secrets.BOT_ID }}
+          private_key: ${{ secrets.BOT_SK }}
 
-      # Diagnostic check to confirm files exist after generation
-      - name: Verify index.html was created
-        shell: bash
-        run: |
-          if [ -f "docs/_html/index.html" ]; then
-            echo "Successfully generated docs/_html/index.html. Ready for upload."
-          else
-            echo "Error: docs/_html/index.html not found. Check typedoc configuration."
-            exit 1
-          fi
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+        with:
+          token: ${{ steps.app_token.outputs.token }}
 
-      # Step 2: Upload the generated documentation artifact (from docs/_html)
-      - name: Upload Docs Artifact
+      - name: Upload HTML docs to Pages
         uses: actions/upload-pages-artifact@v3
         with:
           path: docs/_html
 
-      # Step 3: Deploy the artifact to GitHub Pages
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          token: ${{ steps.app_token.outputs.token }}
