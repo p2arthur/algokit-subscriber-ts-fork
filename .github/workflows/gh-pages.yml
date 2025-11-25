@@ -1,16 +1,27 @@
-name: 'Run typedoc and publish to pages'
+name: Docs Check and Publish
 
 on:
-  workflow_call:
+  push:
+    branches:
+      - main
   workflow_dispatch:
 
+# Set permissions for the deployment actions
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
-  build-and-publish-docs:
+  publish_docs:
+    name: Build & Publish Docs
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      pages: write
-      id-token: write
+
+    # Use environment setup only for the publishing job
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
     steps:
       - name: Checkout source code
         uses: actions/checkout@v4
@@ -19,17 +30,38 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22.x
+          cache: 'npm'
 
       - name: Npm install
         run: npm ci --ignore-scripts
 
-      - name: Build doc
-        run: npm run generate:code-docs
+      - name: Generate Prisma Client
+        run: npx prisma generate
 
-      - name: Upload to GitHub pages
+      # Step 1: Generate Docs (Now without the staleness check)
+      - name: Build and Generate Docs (HTML)
+        run: |
+          # This command now runs independently and generates the docs
+          npm run generate:code-docs
+
+      # Diagnostic check to confirm files exist after generation
+      - name: Verify index.html was created
+        shell: bash
+        run: |
+          if [ -f "docs/_html/index.html" ]; then
+            echo "Successfully generated docs/_html/index.html. Ready for upload."
+          else
+            echo "Error: docs/_html/index.html not found. Check typedoc configuration."
+            exit 1
+          fi
+
+      # Step 2: Upload the generated documentation artifact (from docs/_html)
+      - name: Upload Docs Artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: docs/_html
 
+      # Step 3: Deploy the artifact to GitHub Pages
       - name: Deploy to GitHub Pages
+        id: deployment
         uses: actions/deploy-pages@v4
