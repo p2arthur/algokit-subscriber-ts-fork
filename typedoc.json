@@ -11,5 +11,7 @@
   "githubPages": true,
   "readme": "docs/README.md",
   "gitRevision": "main",
-  "tsconfig": "tsconfig.build.json"
+  "tsconfig": "tsconfig.build.json",
+  "excludeReferences": true,
+  "includeHierarchySummary": false
 }

@@ -6,14 +6,14 @@
 
 ## Documents
 
-- [READMEs](_html/documents/README.html)
-- [subscriber](md/documents/subscriber.md)
+- [README](_html/documents/README.html)
+- [subscriber](_html/documents/subscriber.html)
 
 ## Modules
 
-- [index](md/index/README.md)
-- [types](md/types/README.md)
-- [types/arc-28](md/types/arc-28/README.md)
-- [types/async-event-emitter](md/types/async-event-emitter/README.md)
-- [types/block](md/types/block/README.md)
-- [types/subscription](md/types/subscription/README.md)
+- [index](_html/modules/index.html)
+- [types](_html/modules/types.html)
+- [types/arc-28](_html/modules/types_arc-28.html)
+- [types/async-event-emitter](_html/modules/types_async-event-emitter.html)
+- [types/block](_html/modules/types_block.html)
+- [types/subscription](_html/modules/types_subscription.html)
