@@ -3,7 +3,6 @@
   "entryPoints": ["src/index.ts", "src/types/*.ts"],
   "exclude": ["src/**/*.spec.ts", "tests/**/*.*", "examples/**/*.*"],
   "entryPointStrategy": "expand",
-  "out": "./docs",
   "outputs": [
     {
       "name": "html",
@@ -19,7 +18,6 @@
   "cleanOutputDir": true,
   "githubPages": false,
   "readme": "none",
-  "entryDocument": "README.md",
   "gitRevision": "main",
   "tsconfig": "tsconfig.build.json"
 }
