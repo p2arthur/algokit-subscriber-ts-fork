@@ -7,7 +7,7 @@
 ## Documents
 
 - [README](_html/documents/README.html)
-- [subscriber](_html/documents/subscriber.html)
+- [subscribers](_html/documents/subscriber.html)
 
 ## Modules
 
