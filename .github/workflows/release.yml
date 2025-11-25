@@ -59,12 +59,18 @@ jobs:
         with:
           path: docs/_html
 
-      - name: Publish docs
-        uses: ./.github/workflows/gh-pages.yml
-        permissions:
-        contents: read
-        pages: write
-        id-token: write
+      - name: Generate bot token
+        uses: actions/create-github-app-token@v1
+        id: app_token
+        with:
+          app_id: ${{ secrets.BOT_ID}}
+          private_key: ${{ secrets.BOT_SK }}
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+        with:
+          token: ${{ steps.app_token.outputs.token }}
 
   check_docs:
     runs-on: ubuntu-latest
