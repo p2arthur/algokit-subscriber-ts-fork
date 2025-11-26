@@ -8,7 +8,7 @@
   "theme": "default",
   "cleanOutputDir": true,
   "githubPages": true,
-  "readme": "docs/readme.md",
+  "readme": "docs/README.md",
   "gitRevision": "main",
   "tsconfig": "tsconfig.build.json",
   "excludeReferences": true,
