@@ -1,60 +1,40 @@
-name: Docs Check and Publish
+name: 'Run typedoc and publish to pages'
 
 on:
   workflow_call:
     secrets:
-      BOT_ID:
-        required: true
       BOT_SK:
         required: true
 
+  workflow_dispatch:
+
 jobs:
-  generate_docs:
-    name: Generate & Publish Docs
+  build-and-publish-docs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      pages: write
       id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Clone repository
+      - name: Checkout source code
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 1
 
-      - name: Use Node.js 20.x
+      - name: Use Node.js 22.x
         uses: actions/setup-node@v4
         with:
-          node-version: 20.x
+          node-version: 22.x
 
-      - name: Install dependencies
+      - name: Npm install
         run: npm ci --ignore-scripts
 
-      - name: Generate documentation
-        run: npm run generate:code-docs
+      - name: Build doc
+        run: npm run script:documentation
 
-      - name: Generate bot token
-        uses: actions/create-github-app-token@v1
-        id: app_token
-        with:
-          app_id: ${{ secrets.BOT_ID }}
-          private_key: ${{ secrets.BOT_SK }}
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-        with:
-          token: ${{ steps.app_token.outputs.token }}
-
-      - name: Upload HTML docs to Pages
+      - name: Upload to GitHub pages
         uses: actions/upload-pages-artifact@v3
         with:
           path: docs/_html
 
       - name: Deploy to GitHub Pages
-        id: deployment
         uses: actions/deploy-pages@v4
         with:
-          token: ${{ steps.app_token.outputs.token }}
+          token: ${{ secrets.BOT_SK }}
