@@ -15,6 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       pages: write # Required to deploy to GitHub Pages
+      id-token: write # Required to create deployment token
 
     steps:
       # --- SETUP ---
