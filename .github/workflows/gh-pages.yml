@@ -40,7 +40,7 @@ jobs:
 
       # --- BUILD DOCS ---
       - name: Build doc
-        run: npm run script:documentation
+        run: npm run generate:code-docs
 
       # --- DEPLOYMENT ---
       - name: Upload Pages Artifact
