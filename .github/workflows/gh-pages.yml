@@ -15,8 +15,10 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
+      pages: write # Required to deploy to GitHub Pages
       id-token: write
     steps:
+      # --- SETUP ---
       - name: Checkout source code
         uses: actions/checkout@v4
 
@@ -28,10 +30,20 @@ jobs:
       - name: Npm install
         run: npm ci --ignore-scripts
 
+      # --- BOT TOKEN GENERATION ---
+      - name: Generate bot token for deployment
+        uses: actions/create-github-app-token@v1
+        id: app_token
+        with:
+          app_id: ${{ secrets.BOT_ID}}
+          private_key: ${{ secrets.BOT_SK }}
+
+      # --- BUILD DOCS ---
       - name: Build doc
         run: npm run script:documentation
 
-      - name: Upload to GitHub pages
+      # --- DEPLOYMENT ---
+      - name: Upload Pages Artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: docs/_html
@@ -39,4 +51,5 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
         with:
-          token: ${{ secrets.BOT_SK }}
+          # Use the generated, short-lived bot token instead of the secret key
+          token: ${{ steps.app_token.outputs.token }}
