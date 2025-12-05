@@ -14,9 +14,8 @@ jobs:
   build-and-publish-docs:
     runs-on: ubuntu-latest
     permissions:
-      contents: read
       pages: write # Required to deploy to GitHub Pages
-      id-token: write
+
     steps:
       # --- SETUP ---
       - name: Checkout source code
